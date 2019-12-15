@@ -14,7 +14,7 @@ var conn = new jsforce.Connection({
 });
 
 var sfLogin = async function(){
-  await conn.login('jeremym@balink.net.lv.icon', 'ba-link1234567')
+  await conn.login(process.env.USERNAME, process.env.PASSWORD)
   console.log(conn)
   conn.streaming.topic("SilentPushes").subscribe(function(message) {
     console.log('Event Type : ' + message.event.type);
